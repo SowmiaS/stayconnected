@@ -2,9 +2,15 @@ package com.ss.stayconnected.appwidget;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.ss.stayconnected.R;
+import com.ss.stayconnected.appwidget.adapter.FamilyMembersCursorAdapter;
 import com.ss.stayconnected.base.BaseAppWidgetLaunchActivity;
+import com.ss.stayconnected.model.ProfileInfo;
+
+import java.util.ArrayList;
 
 /**
  * This Activity displays the family members profile photos.
@@ -12,6 +18,9 @@ import com.ss.stayconnected.base.BaseAppWidgetLaunchActivity;
  * Created by sowmi on 06/01/17.
  */
 public class AppWidgetPreferenceActivity extends BaseAppWidgetLaunchActivity {
+
+    private RecyclerView mRecyclerView;
+    private FamilyMembersCursorAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,12 +31,11 @@ public class AppWidgetPreferenceActivity extends BaseAppWidgetLaunchActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        populateFamilyMembers();
-        closeActivity();
+        mRecyclerView = (RecyclerView) findViewById(R.id.familymembers_recyclerview);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this , 2));
+        adapter = new FamilyMembersCursorAdapter(this, (ArrayList<ProfileInfo>) ProfileInfo.retriveAllProfiles(this));
+        mRecyclerView.setAdapter(adapter);
+//        closeActivity();
     }
 
-
-    private void populateFamilyMembers(){
-        //TODO: Retrieve Family members details and populate the GridView with information.
-    }
 }

@@ -6,7 +6,7 @@ import android.util.Log;
  * This is custom Log class to have control over the logs
  * Created by sowmi on 06/01/17.
  */
-class SCLog  {
+public class SCLog  {
 
     public static int v(String tag, String msg, Throwable tr) {
         return Log.v(tag, msg , tr);
