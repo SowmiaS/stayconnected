@@ -21,7 +21,7 @@ public class SCSqliteHelper extends SQLiteOpenHelper {
                     ProfileInfo.COLUMN_NAME_LASTUPDATEDTIME + " TEXT)";
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "sc.db";
+    public static final String DATABASE_NAME = "sc_profilepic2.db";
     private static SCSqliteHelper scSqliteHelper;
 
 

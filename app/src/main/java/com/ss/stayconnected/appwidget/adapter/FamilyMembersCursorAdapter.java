@@ -20,10 +20,15 @@ public class FamilyMembersCursorAdapter extends RecyclerView.Adapter<ProfileInfo
 
     private ArrayList<ProfileInfo> profileInfos;
     private Context context;
+    private OnWidgetClickListener profileClickListener;
 
     public FamilyMembersCursorAdapter(Context context, ArrayList<ProfileInfo> profileInfos) {
         this.context = context;
         this.profileInfos = profileInfos;
+    }
+
+    public void setProfileClickListener(OnWidgetClickListener profileClickListener) {
+        this.profileClickListener = profileClickListener;
     }
 
     @Override
@@ -33,13 +38,27 @@ public class FamilyMembersCursorAdapter extends RecyclerView.Adapter<ProfileInfo
     }
 
     @Override
-    public void onBindViewHolder(ProfileInfoViewHolder holder, int position) {
-        holder.profilPic.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sc_profilepic));
+    public void onBindViewHolder(ProfileInfoViewHolder holder, final int position) {
+        holder.profilPic.setImageDrawable(ContextCompat.getDrawable(context, Integer.parseInt(profileInfos.get(position).getProfilePicURI())));
+
+        if(profileClickListener != null){
+            holder.profilPic.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    profileClickListener.onClickOfWidget(profileInfos.get(position));
+                }
+            });
+        }
+
     }
 
     @Override
     public int getItemCount() {
         return profileInfos.size();
+    }
+
+    public interface OnWidgetClickListener{
+        public void onClickOfWidget(ProfileInfo profileInfo);
     }
 }
 
@@ -53,5 +72,8 @@ class ProfileInfoViewHolder extends RecyclerView.ViewHolder {
         profilPic = (ImageView) itemView.findViewById(R.id.familymembers_profilepic);
     }
 }
+
+
+
 
 

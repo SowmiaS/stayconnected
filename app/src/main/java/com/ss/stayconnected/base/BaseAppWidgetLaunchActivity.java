@@ -14,7 +14,7 @@ import android.widget.RemoteViews;
 public class BaseAppWidgetLaunchActivity extends FragmentActivity {
 
     private static final String TAG = "BaseAppWidgetLaunchActivity";
-    private int appWidgetId;
+    protected int appWidgetId;
     private RemoteViews remoteViews;
 
     @Override
