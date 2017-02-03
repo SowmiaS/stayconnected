@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "887598774118",
+    "firebase_url": "https://stayconnected-157112.firebaseio.com",
+    "project_id": "stayconnected-157112",
+    "storage_bucket": "stayconnected-157112.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887598774118:android:33800061b1afccee",
+        "android_client_info": {
+          "package_name": "com.ss.stayconnected"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887598774118-vgpfs728bl1e26n71lg7qhc4da1agoth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk38YRlKxURGiuG6YhbyhwzTjneOlniO4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
